@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +27,6 @@ public class FreightOrderResource {
     @Autowired
     private FreightOrderService service;
     
-    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<FreightOrderDTO>>  findAll(){
 
@@ -38,7 +36,6 @@ public class FreightOrderResource {
         return ResponseEntity.ok().body(listDTO);
     }
 
-    @CrossOrigin
     @GetMapping(value = "/{id}")
     public ResponseEntity<List<FreightOrderDTO>> findByName(@PathVariable String id){
         List<FreightOrder> list = service.findByName(id);
@@ -46,7 +43,6 @@ public class FreightOrderResource {
         return ResponseEntity.ok().body(listDTO);
     }
 
-    @CrossOrigin
     @PostMapping
     public ResponseEntity<Void> insert(@RequestBody FreightOrderDTO orderDTO){
         FreightOrder order = service.fromDTO(orderDTO);
