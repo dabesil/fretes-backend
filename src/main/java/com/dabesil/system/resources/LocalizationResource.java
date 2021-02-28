@@ -23,9 +23,9 @@ public class LocalizationResource {
     @Autowired
     private LocalizationService service;
 
-    @GetMapping(value = "/{cidade}")
-    public ResponseEntity<List<LocalizationDTO>> findByName(@PathVariable String cidade){
-        List<Localization> list = service.findByName(cidade);
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<List<LocalizationDTO>> findByName(@PathVariable String id){
+        List<Localization> list = service.findByName(id);
         List<LocalizationDTO> listDTO = list.stream().map(obj -> new LocalizationDTO(obj)).collect(Collectors.toList());
 
         return ResponseEntity.ok().body(listDTO);
