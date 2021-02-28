@@ -24,7 +24,6 @@ public class LocalizationResource {
     @Autowired
     private LocalizationService service;
 
-    @CrossOrigin
     @GetMapping(value = "/{id}")
     public ResponseEntity<List<LocalizationDTO>> findByName(@PathVariable String id){
         List<Localization> list = service.findByName(id);
