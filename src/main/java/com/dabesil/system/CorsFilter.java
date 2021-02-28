@@ -17,9 +17,8 @@ public class CorsFilter implements Filter {
 	public void doFilter(ServletRequest r, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		final HttpServletResponse response = (HttpServletResponse) res;
 		HttpServletRequest request = (HttpServletRequest) r;
-		String origin = request.getHeader("Origin");
 		response.setHeader("Access-Control-Allow-Credentials", "true");
-		response.setHeader("Access-Control-Allow-Origin", origin != null && origin.equals("https://sistema-de-frete.herokuapp.com/") ? origin : "https://sistema-de-frete.herokuapp.com/");
+		response.setHeader("Access-Control-Allow-Origin", "https://sistema-de-frete.herokuapp.com/");
 		response.setHeader("Vary", "Origin");
 		response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 		response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Type, Accept, X-CSRF-TOKEN");
