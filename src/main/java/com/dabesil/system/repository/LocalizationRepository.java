@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LocalizationRepository extends MongoRepository<Localization, String>{
 
-    List<Localization> findByCidadeLikeIgnoreCase(String name);
+    List<Localization> findByCidade(String name);
 }

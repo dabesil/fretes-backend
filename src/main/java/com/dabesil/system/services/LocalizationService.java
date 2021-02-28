@@ -17,11 +17,11 @@ public class LocalizationService {
     private LocalizationRepository repo;
 
     public List<Localization> findByName(String name) {
-        List<Localization> order = repo.findByCidadeLikeIgnoreCase(name);
-        if(order ==null){
+        List<Localization> order = repo.findByCidade(name);
+        if(order == null){
             throw new ObjectNotFoundException("Objeto Não Encontrado");
         }
-        return order; 
+        return order;
     }
 
     public Localization fromDTO(LocalizationDTO localizationDTO){
